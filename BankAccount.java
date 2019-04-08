@@ -100,7 +100,7 @@ public abstract class BankAccount
 		 */
 		public String toString()
 		{
-			return "Account Number: " + accNum + "\tAccount Holder: " + name + "\tBalance: " + balance;
+			return "Account Number: " + accNum + "\t    Account Holder: " + name + "\t    Balance: " + balance;
 			
 		}
 }

@@ -29,10 +29,11 @@ public class Frame extends JFrame
 	{
 		ArrayList <BankAccount> accList = new ArrayList<BankAccount>();
 		setTitle("Katelyn's Bank");
-		setBounds(500, 200, 400, 250);
+		setBounds(100, 100, 600, 600);
 		
 		CardLayout cl = new CardLayout();
 		JPanel overall = new JPanel();
+		add(overall);
 		overall.setLayout(cl);
 		
 		Home home = new Home();
@@ -52,11 +53,11 @@ public class Frame extends JFrame
 		bar.add(menu1);
 		
 		JMenu menu2 = new JMenu("Transaction");
-		JMenuItem option4 = new JMenuItem("Deposit");
+		JMenuItem option4 = new JMenuItem("Deposit or Withdraw");
 		menu2.add(option4);
-		JMenuItem option5 = new JMenuItem("Withdraw");
+		JMenuItem option5 = new JMenuItem("Transfer");
 		menu2.add(option5);
-		JMenuItem option6 = new JMenuItem("Transfer");
+		JMenuItem option6 = new JMenuItem("Get Balance");
 		menu2.add(option6);
 		bar.add(menu2);
 		
@@ -72,7 +73,55 @@ public class Frame extends JFrame
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				cl.show(overall, "Add Account");
-				System.out.println("test");
+			}
+
+		});
+		
+		RemoveAccount removeAcc = new RemoveAccount(accList);
+		overall.add(removeAcc, "Remove Account");
+		
+		option2.addActionListener(new ActionListener ()
+		{
+			
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				cl.show(overall, "Remove Account");
+			}
+
+		});
+		
+		homeMenuItem.addActionListener(new ActionListener ()
+		{
+			
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				cl.show(overall, "Home");
+			}
+
+		});
+		
+		FindAccount findAcc = new FindAccount(accList);
+		overall.add(findAcc, "Find Account");
+		
+		option3.addActionListener(new ActionListener ()
+		{
+			;
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				cl.show(overall, "Find Account");
+			}
+
+		});
+		
+		GetBalance getTheBalance = new GetBalance(accList);
+		overall.add(getTheBalance, "Get Balance");
+		
+		option6.addActionListener(new ActionListener ()
+		{
+			;
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				cl.show(overall, "Get Balance");
 			}
 
 		});

@@ -51,26 +51,14 @@ public class CreateAccount extends JPanel
 		add(acc, gbc);
 		
 		JComboBox type = new JComboBox(new String[] {"", "Checking", "Savings"});
+		gbc.gridx = 1;
+		gbc.gridy = 3;
 		add(type, gbc);
 		
-		JButton displayAcc = new JButton("Display All Accounts");
-		gbc.gridx = 0;
-		gbc.gridy = 4;
-		gbc.gridwidth = 2; 
-		add(displayAcc, gbc);
-		displayAcc.addActionListener(new ActionListener() 
-		{
-			public void actionPerformed(ActionEvent e) 
-			{
-					for(BankAccount a : accList)
-					{
-						System.out.print(a.toString());
-						System.out.println();
-					}
-			}
-		});
 		
 		JButton createAcc = new JButton("Create Account");
+		gbc.gridx = 1;
+		gbc.gridy = 5;
 		add(createAcc, gbc);
 		createAcc.addActionListener(new ActionListener() 
 		{
