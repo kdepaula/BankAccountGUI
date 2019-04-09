@@ -55,6 +55,11 @@ public class CreateAccount extends JPanel
 		gbc.gridy = 3;
 		add(type, gbc);
 		
+		JLabel accNumber = new JLabel("");
+		gbc.gridx = 1;
+		gbc.gridy = 7;
+		add(accNumber, gbc);
+		
 		
 		JButton createAcc = new JButton("Create Account");
 		gbc.gridx = 1;
@@ -73,6 +78,7 @@ public class CreateAccount extends JPanel
 					accList.add(new CheckingAccount(nameTxt.getText(), Double.parseDouble(balTxt.getText()), OVER_DRAFT_FEE, TRANSACTION_FEE, FREE_TRANSACTIONS));
 					nameTxt.setText("");
 					balTxt.setText("");
+					accNumber.setText("Account Number: " + accList.get(accList.size() -1).getAccNum());
 					type.setSelectedItem("");
 				}
 				else if(type.getSelectedItem().equals("Savings"))
@@ -80,6 +86,7 @@ public class CreateAccount extends JPanel
 					accList.add(new SavingsAccount(nameTxt.getText(), Double.parseDouble(balTxt.getText()), RATE, MIN_BAL, MIN_BAL_FEE));
 					nameTxt.setText("");
 					balTxt.setText("");
+					accNumber.setText("Account Number: " + accList.get(accList.size() -1).getAccNum());
 					type.setSelectedItem("");
 				}
 			}

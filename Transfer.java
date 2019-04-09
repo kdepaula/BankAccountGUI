@@ -11,9 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class RemoveAccount extends JPanel
+public class Transfer extends JPanel
 {
-	public RemoveAccount(ArrayList <BankAccount> accList)
+	public Transfer(ArrayList <BankAccount> accList)
 	{
 		setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
@@ -28,33 +28,55 @@ public class RemoveAccount extends JPanel
 		nameTxt.setPreferredSize(new Dimension(200, 30));
 		add(nameTxt, gbc);
 		
-		JLabel acc = new JLabel("Account Number: ");
+		JLabel acc = new JLabel("Account Number to Transfer from: ");
 		gbc.gridx = 0;
 		gbc.gridy = 1;
 		add(acc, gbc);
 		
-		JTextField numTxt = new JTextField("");
-		numTxt.setPreferredSize(new Dimension(200, 30));
+		JTextField accTxt = new JTextField("");
+		accTxt.setPreferredSize(new Dimension(200, 30));
 		gbc.gridx = 1;
-		add(numTxt, gbc);
+		add(accTxt, gbc);
+		
+		JLabel acc2 = new JLabel("Account Number to Transfer to: ");
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		add(acc2, gbc);
+		
+		JTextField accTxt2 = new JTextField("");
+		accTxt2.setPreferredSize(new Dimension(200, 30));
+		gbc.gridx = 1;
+		add(accTxt2, gbc);
 		
 		JLabel heading = new JLabel("If you do not know your account number, go to the Find Account tab under Accounts.");
 		gbc.gridx = 1;
 		gbc.gridy = 3;
 		add(heading, gbc);
 		
-		JButton removeAcc = new JButton("Remove Account");
+		JButton transfer = new JButton("Transfer");
 		gbc.gridx = 1;
 		gbc.gridwidth = 2;
 		gbc.gridy = 2;
-		add(removeAcc, gbc);
-		removeAcc.addActionListener(new ActionListener() 
+		add(transfer, gbc);
+		transfer.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				if(!isNumeric(numTxt.getText())|| nameTxt.getText().equals(""))
+				if(!isNumeric(accTxt.getText()) || !isNumeric(accTxt2.getText())|| 
+				nameTxt.getText().equals(""))
 				{
 					
+				}
+				else()
+				{
+					for(int i = 0; i< accList.size(); i++)
+					{
+						if(accList.get(i).getAccNum() == Double.parseDouble(numTxt.getText()) && 
+						accList.get(i).getName().equals(nameTxt.getText()))
+						{
+							accList.remove(i);
+						}
+					}
 				}
 				else
 				{for(int i = 0; i< accList.size(); i++)
@@ -85,3 +107,4 @@ public class RemoveAccount extends JPanel
 		}
 	}
 }
+
