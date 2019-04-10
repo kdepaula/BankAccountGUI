@@ -67,26 +67,15 @@ public class Transfer extends JPanel
 				{
 					
 				}
-				else()
+				else
 				{
 					for(int i = 0; i< accList.size(); i++)
 					{
-						if(accList.get(i).getAccNum() == Double.parseDouble(numTxt.getText()) && 
-						accList.get(i).getName().equals(nameTxt.getText()))
+						if(accList.get(i).getName() == nameTxt.getText())
 						{
-							accList.remove(i);
+							accList()
 						}
 					}
-				}
-				else
-				{for(int i = 0; i< accList.size(); i++)
-				{
-					if(accList.get(i).getAccNum() == Double.parseDouble(numTxt.getText()) && 
-					accList.get(i).getName().equals(nameTxt.getText()))
-					{
-						accList.remove(i);
-					}
-				}
 				}
 			}
 		});	

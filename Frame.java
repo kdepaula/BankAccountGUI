@@ -113,6 +113,19 @@ public class Frame extends JFrame
 
 		});
 		
+		DepositAndWithdraw dAW = new DepositAndWithdraw(accList);
+		overall.add(dAW, "Deposit And Withdraw");
+		option4.addActionListener(new ActionListener ()
+		{
+			;
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				cl.show(overall, "Deposit And Withdraw");
+			}
+
+		});
+		
+		
 		GetBalance getTheBalance = new GetBalance(accList);
 		overall.add(getTheBalance, "Get Balance");
 		

@@ -15,6 +15,7 @@ public class RemoveAccount extends JPanel
 {
 	public RemoveAccount(ArrayList <BankAccount> accList)
 	{
+		int accRemove = 1;
 		setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 		
@@ -63,6 +64,10 @@ public class RemoveAccount extends JPanel
 					accList.get(i).getName().equals(nameTxt.getText()))
 					{
 						accList.remove(i);
+						heading.setText("" + accRemove + " account(s) removed!");
+						accRemove = accRemove + 1;
+						nameTxt.setText("");
+						numTxt.setText("");
 					}
 				}
 				}
